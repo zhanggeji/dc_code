@@ -1,0 +1,4 @@
+﻿  t.c
+D:\dc_code\test1024\test1024\t.c(7,17): warning C4018: “<”: 有符号/无符号不匹配
+D:\dc_code\test1024\test1024\t.c(7,40): warning C4018: “<”: 有符号/无符号不匹配
+  test1024.vcxproj -> D:\dc_code\test1024\Debug\test1024.exe
