@@ -2,63 +2,74 @@
 //实现运算符重载，其中矩阵要求实现动态大小（即任意行数和列数）。
 #include <iostream>
 using namespace std;
-//class complex
-//{
-//public:
-//	complex(double x, double y) :real(x), imaginary(y)
-//	{
-//
-//	}
-//	complex operator+(complex c)
-//	{
-//		complex temp(0.0, 0.0);
-//		temp.real = this->real + c.real;
-//		temp.imaginary = this->imaginary + c.imaginary;
-//		return temp;
-//	}
-//	complex operator-(complex c)
-//	{
-//		complex temp(0.0, 0.0);
-//		temp.real = this->real - c.real;
-//		temp.imaginary = this->imaginary - c.imaginary;
-//		return temp;
-//	}
-//	complex operator*(complex c)
-//	{
-//		complex temp(0.0, 0.0);
-//		temp.real = this->real * c.real - this->imaginary * c.imaginary;
-//		temp.imaginary = this->imaginary * c.real + this->real * c.imaginary;
-//		return temp;
-//	}
-//	complex operator/(complex c)
-//	{
-//		complex temp(0.0,0.0);
-//		double t;
-//		t = 1 / (c.real * c.real + c.imaginary * c.imaginary);
-//		temp.real = (this->real * c.real + this->imaginary * c.imaginary) * t;
-//		temp.imaginary = (this->imaginary* c.real - this->real * c.imaginary) * t;
-//		return temp;
-//	}
-//	~complex()
-//	{
-//
-//	}
-//	double real;
-//	double imaginary;
-//};
-//int main()
-//{
-//	complex c1(1, 1);
-//	complex c2(2,2);
-//	complex c3 = c1.operator*(c2);
-//	cout <<"real:" << c3.real <<"imaginar:" << c3.imaginary << endl;
-//	complex c4 = c1.operator+(c2);
-//	cout << "real:" << c4.real << "imaginar:" << c4.imaginary << endl;
-//	complex c5 = c1.operator-(c2);
-//	cout << "real:" << c5.real << "imaginar:" << c5.imaginary << endl;
-//	complex c6 = c1.operator/(c2);
-//	cout << "real:" << c6.real << "imaginar:" << c6.imaginary << endl;
-//}
+class complex
+{
+public:
+	complex(double x, double y) :real(x), imaginary(y)
+	{
+
+	}
+	complex operator+(complex c)
+	{
+		complex temp(0.0, 0.0);
+		temp.real = this->real + c.real;
+		temp.imaginary = this->imaginary + c.imaginary;
+		return temp;
+	}
+	complex operator-(complex c)
+	{
+		complex temp(0.0, 0.0);
+		temp.real = this->real - c.real;
+		temp.imaginary = this->imaginary - c.imaginary;
+		return temp;
+	}
+	complex operator*(complex c)
+	{
+		complex temp(0.0, 0.0);
+		temp.real = this->real * c.real - this->imaginary * c.imaginary;
+		temp.imaginary = this->imaginary * c.real + this->real * c.imaginary;
+		return temp;
+	}
+	complex operator/(complex c)
+	{
+		complex temp(0.0,0.0);
+		double t;
+		t = 1 / (c.real * c.real + c.imaginary * c.imaginary);
+		temp.real = (this->real * c.real + this->imaginary * c.imaginary) * t;
+		temp.imaginary = (this->imaginary* c.real - this->real * c.imaginary) * t;
+		return temp;
+	}
+	int operator==(complex c)
+	{
+		if (this->real == c.real && this->imaginary == c.imaginary)
+			return 1;
+		else
+			return 0;
+	}
+	~complex()
+	{
+
+	}
+	double real;
+	double imaginary;
+};
+int main()
+{
+	complex c1(1, 1);
+	complex c2(2,2);
+	complex c3 = c1.operator*(c2);
+	cout <<"real:" << c3.real <<"imaginar:" << c3.imaginary << endl;
+	complex c4 = c1.operator+(c2);
+	cout << "real:" << c4.real << "imaginar:" << c4.imaginary << endl;
+	complex c5 = c1.operator-(c2);
+	cout << "real:" << c5.real << "imaginar:" << c5.imaginary << endl;
+	complex c6 = c1.operator/(c2);
+	cout << "real:" << c6.real << "imaginar:" << c6.imaginary << endl;
+	if (c1.operator==(c2))
+		cout << "match" << endl;
+	else
+		cout << "Donnot match" << endl;
+}
 
 class matrix
 {
